@@ -41,7 +41,7 @@ def v_exo(r: float, v_tau: float, v_r: float, dt: float = 10.0,
     vesc_r    = v_escape(r, mu)
 
     V2 = v2 + vesc_Rexo*vesc_Rexo - vesc_r*vesc_r
-    # численная защита от отрицательного нуля
+    # численная защита от нуля
     if V2 <= 0:
         return 0.0
     return np.sqrt(V2)
@@ -147,3 +147,4 @@ def concentration(dataset, r, v_grid):
 
     # Нормируем результат
     return np.array(concentrations) / (4 * np.pi * r**2)
+
